@@ -138,8 +138,8 @@ function isEmpty(value){
 }
 
 function forwardToId(params){
-    location.href = "#id?" + params;
-    console.log("Forwarding to: #id?" + params);  // Debugowanie
+    location.href = "/id?" + params;
+    console.log("Forwarding to: /id?" + params);  // Debugowanie
 }
 
 // Obsługuje hashchange (zmiany w URL po #)
