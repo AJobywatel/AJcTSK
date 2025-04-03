@@ -132,16 +132,26 @@ document.querySelector(".go").addEventListener('click', () => {
 
 function isEmpty(value){
 
-    let pattern = /^\s*$/
+    let pattern = /^\s*$/;
     return pattern.test(value);
 
 }
 
 function forwardToId(params){
-
-    location.href = "#id?" + params
-
+    location.href = "#id?" + params;
+    console.log("Forwarding to: #id?" + params);  // Debugowanie
 }
+
+// Obsługuje hashchange (zmiany w URL po #)
+window.addEventListener('hashchange', function() {
+    if (location.hash.startsWith("#id?")) {
+        // Pobierz parametry z URL
+        var params = new URLSearchParams(location.hash.substring(1));
+        // Przetwórz parametry (np. wyświetl dane)
+        console.log("Hash changed to:", params.toString());  // Tylko dla testów
+        // Możesz teraz używać params w zależności od tego, co chcesz zrobić
+    }
+});
 
 var guide = document.querySelector(".guide_holder");
 guide.addEventListener('click', () => {
