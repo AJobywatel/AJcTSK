@@ -152,4 +152,27 @@ guide.addEventListener('click', () => {
         guide.classList.add("unfolded");
     }
 
+document.querySelector(".go").addEventListener('click', () => {
+    // Tworzymy nowy adres URL z parametrem page
+    let newURL = window.location.origin + "/?page=mobywatel";
+    
+    // Przekierowanie na nowy adres
+    window.location.href = newURL;
+});
+
+// Sprawdzamy, czy w URL jest parametr page
+window.addEventListener('DOMContentLoaded', () => {
+    let params = new URLSearchParams(window.location.search);
+    let page = params.get("page");
+
+    if (page === "mobywatel") {
+        document.body.innerHTML = `<h1>Strona mObywatel</h1>
+        <p>Treść strony została wygenerowana dynamicznie!</p>`;
+    }
+});
+
+
+
+
+
 })
